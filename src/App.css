@@ -1,0 +1,11 @@
+.usersignUp{
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+}
+.userForm{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
