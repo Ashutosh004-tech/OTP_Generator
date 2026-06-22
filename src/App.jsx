@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 export default function App() {
   const [isGeterated, setGenerated] = useState(false);
+  const [otp, setOtp] = useState("");
   let generateOTP = (e) => {
     e.preventDefault();
     setGenerated(true);
-    console.log(Math.floor(1000 + Math.random() * 9000));
+    let otplVal = Math.floor(1000 + Math.random() * 9000).toString();
+    console.log(otplVal);
+    setOtp(otplVal);
+    // Edit here
   };
 
   let verifyOTP = (e) => {
-     e.preventDefault();
-    console.log("Verified ")
+    e.preventDefault();
+    console.log("Verified ");
   };
   return (
     <div className="usersignUp">
@@ -26,7 +30,11 @@ export default function App() {
           <input type="text" id="userOTP" />
         </div>
         <div>
-          {isGeterated ? <button onClick={verifyOTP}>Verify</button>: <button onClick={generateOTP}>Generate</button>}
+          {isGeterated ? (
+            <button onClick={verifyOTP}>Verify</button>
+          ) : (
+            <button onClick={generateOTP}>Generate</button>
+          )}
           <button>Submit</button>
         </div>
       </form>
